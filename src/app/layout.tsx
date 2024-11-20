@@ -2,11 +2,18 @@ import type { Metadata } from "next"
 
 import "./globals.css"
 
-import { Montserrat_Alternates } from "next/font/google"
+import { Kodchasan, Qwigley } from "next/font/google"
 
-const montserratAlternates = Montserrat_Alternates({
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
+const kodchasan = Kodchasan({
+  weight: ["300", "400", "500", "600", "700"],
   subsets: ["latin"],
+  variable: "--font-kodchasan",
+})
+
+const qwigley = Qwigley({
+  weight: ["400"],
+  subsets: ["latin"],
+  variable: "--font-qwigley",
 })
 
 export const metadata: Metadata = {
@@ -20,8 +27,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className={`${montserratAlternates.className} antialiased`}>
+    <html lang="en" className={`${qwigley.variable} ${kodchasan.variable}`}>
+      <body className={`${kodchasan.className} min-h-screen antialiased`}>
         {children}
       </body>
     </html>

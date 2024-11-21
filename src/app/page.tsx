@@ -178,6 +178,23 @@ export default function Home() {
             </div>
           </div>
         </section>
+        <section className="bg-[#191919] py-5">
+          <div className="section-container flex gap-8">
+            {["gucci", "h&m", "nike", "tnf", "prada", "ellesse"].map(
+              (item, index) => (
+                <div key={index}>
+                  <Image
+                    src={`/assets/homepage/${item}-logo.png`}
+                    alt={""}
+                    width={300}
+                    height={300}
+                    className="brightness-0 invert"
+                  />
+                </div>
+              )
+            )}
+          </div>
+        </section>
       </main>
       <footer></footer>
     </>

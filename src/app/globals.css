@@ -22,7 +22,7 @@ body {
 
 @layer components {
   .section-container {
-    @apply container mx-auto px-4 sm:px-6 xl:max-w-6xl xl:px-0 2xl:max-w-7xl;
+    @apply container mx-auto px-4 sm:px-6 xl:px-0 xl:max-w-6xl;
   }
 
   .display-01 {

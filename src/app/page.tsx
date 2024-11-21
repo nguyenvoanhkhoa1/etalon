@@ -51,7 +51,7 @@ export default function Home() {
   const sliderRef = useRef<Slider>(null)
   var settings: Settings = {
     dots: false,
-    infinite: false,
+    infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
@@ -107,22 +107,22 @@ export default function Home() {
             <button className="body-md-500 flex items-center gap-1 text-white">
               Menu <List size={24} />
             </button>
-            <button className="bg-primary-default flex size-9 items-center justify-center rounded-full">
+            <button className="flex size-9 items-center justify-center rounded-full bg-primary-default">
               <Bag size={24} className="fill-secondary-dark" />
             </button>
           </div>
         </div>
       </header>
       <main>
-        <section className="from-secondary-dark to-secondary-light overflow-hidden bg-gradient-to-br">
-          <div className="section-container relative flex py-44">
+        <section className="overflow-hidden bg-gradient-to-br from-secondary-dark to-secondary-light">
+          <div className="section-container relative flex py-32">
             <div className="flex w-1/2 flex-col items-start text-white">
               <h3 className="font-qwigley text-9xl leading-none text-white/80">
                 2022
               </h3>
               <h1 className="text-9xl">Autumn Jackets</h1>
               <div className="mt-3 text-2xl">Autumn Sale / Up to 50% OFF</div>
-              <button className="text-secondary-dark bg-primary-default mt-10 h-10 rounded-md px-3 py-2 font-semibold">
+              <button className="mt-10 h-10 rounded-md bg-primary-default px-3 py-2 font-semibold text-secondary-dark">
                 Open Collection
               </button>
             </div>
@@ -141,7 +141,7 @@ export default function Home() {
                       <div className="absolute right-1/4 top-1/4 -translate-y-14 translate-x-12 text-4xl text-white">
                         $299
                       </div>
-                      <div className="bg-primary-default absolute right-1/4 top-1/4 flex size-32 translate-x-1/4 items-center justify-center rounded-full text-center text-3xl font-black">
+                      <div className="absolute right-1/4 top-1/4 flex size-32 translate-x-1/4 items-center justify-center rounded-full bg-primary-default text-center text-3xl font-black">
                         -40% OFF
                       </div>
                     </div>
@@ -150,16 +150,16 @@ export default function Home() {
               </Slider>
               <div className="absolute bottom-[10%] left-1/2 flex w-4/5 -translate-x-1/2 justify-between">
                 <button
-                  className={`rounded-full border-2 border-solid border-white p-3 ${current === 0 ? "opacity-50" : ""}`}
+                  className={`rounded-full border-2 border-solid border-white p-3`} // ${current === 0 ? "opacity-50" : ""}
                   onClick={sliderRef.current?.slickPrev}
-                  disabled={current === 0}
+                  // disabled={current === 0}
                 >
                   <ArrowLeft weight="bold" size={24} className="fill-white" />
                 </button>
                 <button
-                  className={`rounded-full border-2 border-solid border-white p-3 ${current === BANNER_SLIDER.length - 1 ? "opacity-50" : ""}`}
+                  className={`rounded-full border-2 border-solid border-white p-3`} // ${current === BANNER_SLIDER.length - 1 ? "opacity-50" : ""}
                   onClick={sliderRef.current?.slickNext}
-                  disabled={current === BANNER_SLIDER.length - 1}
+                  // disabled={current === BANNER_SLIDER.length - 1}
                 >
                   <ArrowRight weight="bold" size={24} className="fill-white" />
                 </button>

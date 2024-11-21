@@ -195,6 +195,15 @@ export default function Home() {
             )}
           </div>
         </section>
+        <section className="bg-[#E9E9E9]">
+          <div className="section-container py-16">
+            <h2 className="text-6xl">New Collection</h2>
+            <div className="grid grid-cols-12 gap-10">
+              <div className="col-span-5 bg-[#C6C2C9]">a</div>
+              <div className="col-span-7 bg-primary-default">b</div>
+            </div>
+          </div>
+        </section>
       </main>
       <footer></footer>
     </>

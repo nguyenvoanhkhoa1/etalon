@@ -293,7 +293,7 @@ export default function Home() {
                         width="32"
                         height="32"
                         viewBox="0 0 256 256"
-                        className="absolute right-5 top-5 stroke-secondary-dark"
+                        className="absolute right-5 top-5 fill-secondary-dark"
                       >
                         <path
                           className="block group-hover:hidden"

@@ -10,6 +10,8 @@ import "slick-carousel/slick/slick-theme.css"
 
 import { useRef, useState } from "react"
 
+import useScrollStatus from "@/hooks/useScrollStatus"
+
 export default function Home() {
   const HEADER_LINKS = [
     {
@@ -93,6 +95,7 @@ export default function Home() {
     },
   ]
 
+  const { isAtTop, isAtBottom, scrollDirection } = useScrollStatus()
   const [current, setCurrent] = useState(0)
 
   const sliderRef = useRef<Slider>(null)
@@ -123,9 +126,11 @@ export default function Home() {
 
   return (
     <>
-      <header className="fixed w-full">
-        <div className="section-container flex items-center justify-between bg-transparent py-4">
-          <div className="flex items-center gap-2">
+      <header
+        className={`fixed z-10 w-full py-4 transition-all duration-300 ease-in-out ${isAtTop ? "bg-transparent py-8" : "bg-black/80 py-4 shadow-md"}`}
+      >
+        <div className={`section-container flex items-center justify-between`}>
+          <Link href="/" className="flex items-center gap-2">
             <Image
               src={"/assets/etalon-logo.png"}
               alt={""}
@@ -134,7 +139,7 @@ export default function Home() {
               className="size-9 rounded-full"
             />
             <div className="text-3xl font-bold text-white">etalon</div>
-          </div>
+          </Link>
           <nav>
             {HEADER_LINKS.map((link) => (
               <Link

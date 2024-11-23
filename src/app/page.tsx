@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowLeft, ArrowRight, Bag, List } from "@phosphor-icons/react"
+import { ArrowLeft, ArrowRight, Bag, Heart, List } from "@phosphor-icons/react"
 import Slider, { Settings } from "react-slick"
 
 import "slick-carousel/slick/slick.css"
@@ -43,6 +43,53 @@ export default function Home() {
     },
     {
       image: "/assets/homepage/banner-carousel-4.png",
+    },
+  ]
+
+  const BEST_SELLERS = [
+    {
+      image: {
+        url: "/assets/homepage/best-seller-1.png",
+        w: 500,
+        h: 750,
+      },
+      title: "Green Jacket",
+      sales: "",
+      price: "$129",
+      oldPrice: "",
+    },
+    {
+      image: {
+        url: "/assets/homepage/best-seller-2.png",
+        w: 500,
+        h: 750,
+      },
+      title: "Prada Bag",
+      sales: "",
+      price: "$129",
+      oldPrice: "",
+    },
+    {
+      image: {
+        url: "/assets/homepage/best-seller-3.png",
+        w: 500,
+        h: 750,
+      },
+      title: "Yellow Jacket",
+      sales: "",
+      price: "$150",
+      oldPrice: "",
+    },
+    {
+      image: {
+        url: "/assets/homepage/best-seller-4.png",
+        w: 500,
+        h: 500,
+      },
+      title: "Pointer Footwear",
+      sales: "-30%",
+      price: "$129",
+      oldPrice: "$170",
     },
   ]
 
@@ -198,10 +245,91 @@ export default function Home() {
         <section className="bg-[#E9E9E9]">
           <div className="section-container py-16">
             <h2 className="text-6xl">New Collection</h2>
-            <div className="grid grid-cols-12 gap-10">
-              <div className="col-span-5 bg-[#C6C2C9]">a</div>
-              <div className="col-span-7 bg-primary-default">b</div>
+            <div className="mt-10 grid grid-cols-12 gap-10">
+              <div className="relative col-span-5 h-[450px] rounded-3xl bg-[#C6C2C9] bg-[url('/assets/homepage/new-collection-winter.png')] bg-[length:80%_auto] bg-[left_80%_top_4rem] bg-no-repeat p-5">
+                <div className="text-2xl font-bold">Mens Winter Collection</div>
+                <button className="absolute bottom-5 right-5 rounded-lg bg-gray-900 px-3 py-2 text-white">
+                  Discover Now
+                </button>
+              </div>
+              <div className="relative col-span-7 rounded-3xl bg-primary-default bg-[url('/assets/homepage/new-collection-bag.png')] bg-[length:70%_auto] bg-[left_0%_top_1rem] bg-no-repeat p-5">
+                <div className="float-end mr-10 mt-10 text-2xl font-bold">
+                  Men&apos;s Bags
+                  <br />
+                  Collection
+                </div>
+                <div className="absolute right-5 top-1/2 -translate-y-1/2 text-5xl font-bold">
+                  -40% OFF
+                </div>
+                <button className="absolute bottom-5 right-5 rounded-lg bg-gray-900 px-3 py-2 text-white">
+                  Discover Now
+                </button>
+              </div>
             </div>
+          </div>
+        </section>
+        <section>
+          <div className="section-container flex flex-col py-16">
+            <h2 className="text-6xl">Best Sellers</h2>
+            <div className="mt-10 grid grid-cols-4 gap-6">
+              {BEST_SELLERS.map((item, index) => (
+                <div key={index} className="flex flex-col">
+                  <div className="relative h-72 grow overflow-hidden rounded-2xl bg-[#EFEFED] pt-5">
+                    <Image
+                      src={item.image.url}
+                      alt={""}
+                      width={item.image.w}
+                      height={item.image.h}
+                      className="mx-auto h-auto w-4/5"
+                    />
+                    {!!item.sales && (
+                      <div className="absolute left-5 top-5 rounded-lg bg-secondary-dark px-4 py-1 text-white">
+                        {item.sales}
+                      </div>
+                    )}
+                    <button className="group">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="32"
+                        height="32"
+                        viewBox="0 0 256 256"
+                        className="absolute right-5 top-5 stroke-secondary-dark"
+                      >
+                        <path
+                          className="block group-hover:hidden"
+                          d="M178,40c-20.65,0-38.73,8.88-50,23.89C116.73,48.88,98.65,40,78,40a62.07,62.07,0,0,0-62,62c0,70,103.79,126.66,108.21,129a8,8,0,0,0,7.58,0C136.21,228.66,240,172,240,102A62.07,62.07,0,0,0,178,40ZM128,214.8C109.74,204.16,32,155.69,32,102A46.06,46.06,0,0,1,78,56c19.45,0,35.78,10.36,42.6,27a8,8,0,0,0,14.8,0c6.82-16.67,23.15-27,42.6-27a46.06,46.06,0,0,1,46,46C224,155.61,146.24,204.15,128,214.8Z"
+                        ></path>
+                        <path
+                          className="hidden group-hover:block"
+                          d="M240,102c0,70-103.79,126.66-108.21,129a8,8,0,0,1-7.58,0C119.79,228.66,16,172,16,102A62.07,62.07,0,0,1,78,40c20.65,0,38.73,8.88,50,23.89C139.27,48.88,157.35,40,178,40A62.07,62.07,0,0,1,240,102Z"
+                        ></path>
+                      </svg>
+                    </button>
+                  </div>
+                  <div className="mt-4 flex items-center justify-between">
+                    <div>
+                      <div className="cursor-pointer text-lg font-semibold hover:text-secondary-dark">
+                        {item.title}
+                      </div>
+                      <div>
+                        {!!item.oldPrice ? (
+                          <span className="line-through">{item.oldPrice}</span>
+                        ) : (
+                          ""
+                        )}
+                        <span className="font-semibold"> {item.price}</span>
+                      </div>
+                    </div>
+                    <button className="rounded-xl bg-primary-default p-2">
+                      <Bag size={24} className="fill-secondary-dark" />
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <button className="mx-auto mt-10 rounded-xl bg-gray-900 px-4 py-3 text-white">
+              Load More Products
+            </button>
           </div>
         </section>
       </main>

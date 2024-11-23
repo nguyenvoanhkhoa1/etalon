@@ -11,6 +11,7 @@ import "slick-carousel/slick/slick-theme.css"
 import { useRef, useState } from "react"
 
 import useScrollStatus from "@/hooks/useScrollStatus"
+import useTimeCountdown from "@/hooks/useTimeCountdown"
 
 export default function Home() {
   const HEADER_LINKS = [
@@ -96,6 +97,7 @@ export default function Home() {
   ]
 
   const { isAtTop, isAtBottom, scrollDirection } = useScrollStatus()
+  const { days, hours, minutes, seconds } = useTimeCountdown(86400 * 25)
   const [current, setCurrent] = useState(0)
 
   const sliderRef = useRef<Slider>(null)
@@ -335,6 +337,60 @@ export default function Home() {
             <button className="mx-auto mt-10 rounded-xl bg-gray-900 px-4 py-3 text-white">
               Load More Products
             </button>
+          </div>
+        </section>
+        <section className="bg-[linear-gradient(to_right,_#FEDE67_50%,_#3B5E48_50%)]">
+          <div className="section-container flex gap-20 bg-[linear-gradient(to_right,_#FEDE67_30%,_#3B5E48_30%)] py-16">
+            <div className="flex flex-col gap-5">
+              <div className="text-6xl font-bold">-70% OFF</div>
+              <Image
+                src={"/assets/homepage/sale-thumb.png"}
+                alt={""}
+                width={700}
+                height={293}
+                className="w-[450px]"
+              />
+              <div className="flex items-center gap-3">
+                <div className="rounded-xl border-2 border-black px-3 py-2 text-2xl font-semibold">
+                  <span className="line-through">$180</span>
+                  <span> $50</span>
+                </div>
+                <button className="rounded-xl bg-gray-900 p-3">
+                  <Bag size={28} className="fill-white" />
+                </button>
+              </div>
+            </div>
+            <div className="grow">
+              <div className="text-6xl font-medium text-white">
+                Sale ends soon
+              </div>
+              <div className="mt-14 grid grid-cols-4 gap-8 text-white">
+                <div className="flex flex-col items-center gap-3">
+                  <div className="flex h-32 w-full items-center justify-center rounded-2xl bg-secondary-dark text-7xl">
+                    {days}
+                  </div>
+                  <div className="text-xl">Days</div>
+                </div>
+                <div className="flex flex-col items-center gap-3">
+                  <div className="flex h-32 w-full items-center justify-center rounded-2xl bg-secondary-dark text-7xl">
+                    {hours}
+                  </div>
+                  <div className="text-xl">Hours</div>
+                </div>
+                <div className="flex flex-col items-center gap-3">
+                  <div className="flex h-32 w-full items-center justify-center rounded-2xl bg-secondary-dark text-7xl">
+                    {minutes}
+                  </div>
+                  <div className="text-xl">Minutes</div>
+                </div>
+                <div className="flex flex-col items-center gap-3">
+                  <div className="flex h-32 w-full items-center justify-center rounded-2xl bg-secondary-dark text-7xl">
+                    {seconds}
+                  </div>
+                  <div className="text-xl">Seconds</div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
       </main>

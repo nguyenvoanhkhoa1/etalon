@@ -243,18 +243,18 @@ export default function Home() {
       </header>
       <main>
         <section className="overflow-hidden bg-gradient-to-br from-secondary-dark to-secondary-light">
-          <div className="section-container relative flex py-32">
+          <div className="section-container relative flex py-[120px] xl:py-32">
             <div className="flex w-1/2 flex-col items-start text-white">
-              <h3 className="font-qwigley text-9xl leading-none text-white/80">
+              <h3 className="font-qwigley text-8xl leading-none text-white/80 xl:text-9xl">
                 2022
               </h3>
-              <h1 className="text-9xl">Autumn Jackets</h1>
-              <div className="mt-3 text-2xl">Autumn Sale / Up to 50% OFF</div>
+              <h1 className="text-8xl xl:text-9xl">Autumn Jackets</h1>
+              <div className="mt-5 text-2xl">Autumn Sale / Up to 50% OFF</div>
               <button className="hover:bg-primary-dark mt-10 h-10 rounded-md bg-primary-default px-3 py-2 font-semibold text-secondary-dark transition-colors duration-300 ease-in-out">
                 Open Collection
               </button>
             </div>
-            <div className="absolute right-0 top-[10%] w-1/2">
+            <div className="absolute right-6 top-[10%] w-[calc(50%-24px)] xl:right-0 xl:w-1/2">
               <Slider {...settings} ref={sliderRef}>
                 {BANNER_SLIDER.map((item, index) => (
                   <div key={index} className="">
@@ -266,10 +266,10 @@ export default function Home() {
                         height={2000}
                         className="h-auto w-full"
                       />
-                      <div className="absolute right-1/4 top-1/4 -translate-y-14 translate-x-12 text-4xl text-white">
+                      <div className="absolute right-1/4 top-1/4 -translate-y-14 translate-x-12 text-3xl text-white xl:text-4xl">
                         $299
                       </div>
-                      <div className="absolute right-1/4 top-1/4 flex size-32 translate-x-1/4 items-center justify-center rounded-full bg-primary-default text-center text-3xl font-black">
+                      <div className="absolute right-1/4 top-1/4 flex size-28 translate-x-1/4 items-center justify-center rounded-full bg-primary-default text-center text-2xl font-black xl:size-32 xl:text-3xl">
                         -40% OFF
                       </div>
                     </div>
@@ -318,7 +318,7 @@ export default function Home() {
                     alt={""}
                     width={300}
                     height={300}
-                    className="h-auto w-32 brightness-0 invert"
+                    className="h-auto w-28 brightness-0 invert xl:w-32"
                   />
                 </div>
               )
@@ -327,7 +327,7 @@ export default function Home() {
         </section>
         <section className="bg-[#E9E9E9]">
           <div className="section-container py-16">
-            <h2 className="text-6xl">New Collection</h2>
+            <h2 className="text-5xl xl:text-6xl">New Collection</h2>
             <div className="mt-10 grid grid-cols-12 gap-10">
               <div className="relative col-span-5 h-[450px] rounded-3xl bg-[#C6C2C9] bg-[url('/assets/homepage/new-collection-winter.png')] bg-[length:80%_auto] bg-[left_80%_top_4rem] bg-no-repeat p-5">
                 <div className="text-2xl font-bold">Mens Winter Collection</div>
@@ -353,11 +353,11 @@ export default function Home() {
         </section>
         <section>
           <div className="section-container flex flex-col py-16">
-            <h2 className="text-6xl">Best Sellers</h2>
+            <h2 className="text-5xl xl:text-6xl">Best Sellers</h2>
             <div className="mt-10 grid grid-cols-4 gap-6">
               {BEST_SELLERS.map((item, index) => (
                 <div key={index} className="flex flex-col">
-                  <div className="relative h-72 grow overflow-hidden rounded-2xl bg-[#EFEFED] pt-5">
+                  <div className="relative h-60 grow overflow-hidden rounded-2xl bg-[#EFEFED] pt-5 xl:h-72">
                     <Image
                       src={item.image.url}
                       alt={""}
@@ -418,13 +418,13 @@ export default function Home() {
         <section className="bg-[linear-gradient(to_right,_#FEDE67_50%,_#3B5E48_50%)]">
           <div className="section-container flex gap-20 bg-[linear-gradient(to_right,_#FEDE67_30%,_#3B5E48_30%)] py-16">
             <div className="flex flex-col gap-5">
-              <div className="text-6xl font-bold">-70% OFF</div>
+              <div className="text-5xl font-bold xl:text-6xl">-70% OFF</div>
               <Image
                 src={"/assets/homepage/sale-thumb.png"}
                 alt={""}
                 width={700}
                 height={293}
-                className="w-[450px]"
+                className="w-[420px] xl:w-[450px]"
               />
               <div className="flex items-center gap-3">
                 <button className="hover:bg-primary-dark rounded-xl border-2 border-black px-3 py-2 text-2xl font-semibold transition-colors duration-300 ease-in-out">
@@ -437,33 +437,33 @@ export default function Home() {
               </div>
             </div>
             <div className="grow">
-              <div className="text-6xl font-medium text-white">
+              <div className="text-5xl font-medium text-white xl:text-6xl">
                 Sale ends soon
               </div>
-              <div className="mt-14 grid grid-cols-4 gap-8 text-white">
+              <div className="mt-14 grid grid-cols-4 gap-4 text-white xl:gap-8">
                 <div className="flex flex-col items-center gap-3">
-                  <div className="flex h-32 w-full items-center justify-center rounded-2xl bg-secondary-dark text-7xl">
+                  <div className="flex h-24 w-full items-center justify-center rounded-2xl bg-secondary-dark text-6xl xl:h-32 xl:text-7xl">
                     {days}
                   </div>
-                  <div className="text-xl">Days</div>
+                  <div className="text-lg xl:text-xl">Days</div>
                 </div>
                 <div className="flex flex-col items-center gap-3">
-                  <div className="flex h-32 w-full items-center justify-center rounded-2xl bg-secondary-dark text-7xl">
+                  <div className="flex h-24 w-full items-center justify-center rounded-2xl bg-secondary-dark text-6xl xl:h-32 xl:text-7xl">
                     {hours}
                   </div>
-                  <div className="text-xl">Hours</div>
+                  <div className="text-lg xl:text-xl">Hours</div>
                 </div>
                 <div className="flex flex-col items-center gap-3">
-                  <div className="flex h-32 w-full items-center justify-center rounded-2xl bg-secondary-dark text-7xl">
+                  <div className="flex h-24 w-full items-center justify-center rounded-2xl bg-secondary-dark text-6xl xl:h-32 xl:text-7xl">
                     {minutes}
                   </div>
-                  <div className="text-xl">Minutes</div>
+                  <div className="text-lg xl:text-xl">Minutes</div>
                 </div>
                 <div className="flex flex-col items-center gap-3">
-                  <div className="flex h-32 w-full items-center justify-center rounded-2xl bg-secondary-dark text-7xl">
+                  <div className="flex h-24 w-full items-center justify-center rounded-2xl bg-secondary-dark text-6xl xl:h-32 xl:text-7xl">
                     {seconds}
                   </div>
-                  <div className="text-xl">Seconds</div>
+                  <div className="text-lg xl:text-xl">Seconds</div>
                 </div>
               </div>
             </div>
@@ -471,7 +471,7 @@ export default function Home() {
         </section>
         <section className="bg-[#E9E9E9]">
           <div className="section-container flex flex-col py-16">
-            <h2 className="text-6xl">Latest News</h2>
+            <h2 className="text-5xl xl:text-6xl">Latest News</h2>
             <div className="mt-10 grid grid-cols-3 gap-12">
               {LATEST_NEWS.map((item, index) => (
                 <div key={index} className="flex flex-col">

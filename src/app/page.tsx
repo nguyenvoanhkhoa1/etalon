@@ -12,6 +12,7 @@ import {
   ShieldCheck,
   Swap,
   Truck,
+  X,
 } from "@phosphor-icons/react"
 import Slider, { Settings } from "react-slick"
 
@@ -19,6 +20,7 @@ import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 
 import { useRef, useState } from "react"
+import { useLockBodyScroll, useMedia } from "react-use"
 
 import useScrollStatus from "@/hooks/useScrollStatus"
 import useTimeCountdown from "@/hooks/useTimeCountdown"
@@ -170,9 +172,14 @@ export default function Home() {
     },
   ]
 
+  const isDesktop = useMedia("(min-width: 1024px)", true)
   const { isAtTop, isAtBottom, scrollDirection } = useScrollStatus()
   const { days, hours, minutes, seconds } = useTimeCountdown(86400 * 25)
+
+  const [openMobileMenu, setOpenMobileMenu] = useState(false)
   const [current, setCurrent] = useState(0)
+
+  useLockBodyScroll(openMobileMenu)
 
   const sliderRef = useRef<Slider>(null)
   var settings: Settings = {
@@ -216,7 +223,7 @@ export default function Home() {
             />
             <div className="text-3xl font-bold text-white">etalon</div>
           </Link>
-          <nav>
+          <nav className="hidden lg:block">
             {HEADER_LINKS.map((link) => (
               <Link
                 key={link.label}
@@ -231,13 +238,47 @@ export default function Home() {
               </Link>
             ))}
           </nav>
-          <div className="flex items-center gap-3">
-            <button className="body-md-500 flex items-center gap-1 rounded-md p-2 text-white transition-colors duration-300 ease-in-out hover:bg-white/10">
-              Menu <List size={24} />
+          <div className="flex items-center gap-5">
+            <button
+              className="body-md-500 flex size-12 items-center justify-center rounded-md p-2 text-white transition-colors duration-300 ease-in-out hover:bg-white/10 lg:hidden"
+              onClick={() => setOpenMobileMenu(true)}
+            >
+              <List size={24} />
             </button>
-            <button className="hover:bg-primary-dark flex size-9 items-center justify-center rounded-full bg-primary-default transition-colors duration-300 ease-in-out">
+            <button className="hover:bg-primary-dark flex size-12 items-center justify-center rounded-full bg-primary-default transition-colors duration-300 ease-in-out">
               <Bag size={24} className="fill-secondary-dark" />
             </button>
+          </div>
+          <div
+            className={`fixed left-0 top-0 block h-screen w-screen bg-black/90 transition-all duration-300 ease-in-out lg:hidden ${openMobileMenu ? "left-0" : "left-full"}`}
+          >
+            <div className={`section-container ${isAtTop ? "py-8" : "py-4"}`}>
+              <button
+                className="top-4 float-end flex size-12 items-center justify-center transition-all duration-300 ease-in-out hover:shadow-lg"
+                onClick={() => setOpenMobileMenu(false)}
+              >
+                <X size={24} className="fill-white" />
+              </button>
+              <div className="float-none mt-12 flex flex-col gap-2">
+                {HEADER_LINKS.map((item, index) => (
+                  <Link
+                    href={item.href}
+                    key={index}
+                    className="block py-4 text-center text-primary-default transition-all duration-200 ease-in-out active:bg-primary-default active:text-secondary-dark"
+                    onClick={() =>
+                      setTimeout(() => {
+                        setOpenMobileMenu(false)
+                      }, 500)
+                    }
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+                <button className="mx-auto mt-4 flex size-12 items-center justify-center rounded-full bg-primary-default transition-colors duration-300 ease-in-out">
+                  <Bag size={24} className="fill-secondary-dark" />
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </header>

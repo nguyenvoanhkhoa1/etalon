@@ -143,6 +143,33 @@ export default function Home() {
     },
   ]
 
+  const FOOTER_LINKS = [
+    {
+      title: "Help & Information",
+      links: [
+        { label: "Help", href: "#" },
+        { label: "Track order", href: "#" },
+        { label: "Delivery & returns", href: "#" },
+      ],
+    },
+    {
+      title: "About Etalon",
+      links: [
+        { label: "About Us", href: "#" },
+        { label: "Careers of Etalon", href: "#" },
+        { label: "Investors' site", href: "#" },
+      ],
+    },
+    {
+      title: "More from Etalon",
+      links: [
+        { label: "Mobile and Etalon apps", href: "#" },
+        { label: "Gift vouchers", href: "#" },
+        { label: "Black Friday", href: "#" },
+      ],
+    },
+  ]
+
   const { isAtTop, isAtBottom, scrollDirection } = useScrollStatus()
   const { days, hours, minutes, seconds } = useTimeCountdown(86400 * 25)
   const [current, setCurrent] = useState(0)
@@ -194,7 +221,7 @@ export default function Home() {
               <Link
                 key={link.label}
                 href={link.href}
-                className={`body-md-500 p-4 ${
+                className={`body-md-500 p-4 transition-all duration-300 ease-in-out ${
                   link.isActive
                     ? "text-white"
                     : "text-white/50 hover:text-white"
@@ -501,29 +528,82 @@ export default function Home() {
         <section className="bg-[#191919]">
           <div className="section-container grid grid-cols-4 gap-6 py-16">
             <div className="flex flex-col items-center gap-4">
-              <Truck weight="thin" size={52} className="fill-white" />
-              <div className="text-white">Free Shipping & Returns</div>
+              <Truck weight="thin" size={48} className="fill-white" />
+              <div className="text-sm text-white">Free Shipping & Returns</div>
             </div>
             <div className="flex flex-col items-center gap-4">
               <CurrencyCircleDollar
                 weight="thin"
-                size={52}
+                size={48}
                 className="fill-white"
               />
-              <div className="text-white">100% Money Back Guarantee</div>
+              <div className="text-sm text-white">
+                100% Money Back Guarantee
+              </div>
             </div>
             <div className="flex flex-col items-center gap-4">
-              <Swap weight="thin" size={52} className="fill-white" />
-              <div className="text-white">Replacement in case of a defect</div>
+              <Swap weight="thin" size={48} className="fill-white" />
+              <div className="text-sm text-white">
+                Replacement in case of a defect
+              </div>
             </div>
             <div className="flex flex-col items-center gap-4">
-              <ShieldCheck weight="thin" size={52} className="fill-white" />
-              <div className="text-white">Safe and Secure Checkout</div>
+              <ShieldCheck weight="thin" size={48} className="fill-white" />
+              <div className="text-sm text-white">Safe and Secure Checkout</div>
             </div>
           </div>
         </section>
       </main>
-      <footer></footer>
+      <footer className="border-t border-gray-700">
+        <div className="bg-[#191919]">
+          <div className="section-container grid grid-cols-4 gap-6 py-16">
+            <div>
+              <Link href="/" className="flex items-center gap-2">
+                <Image
+                  src={"/assets/etalon-logo.png"}
+                  alt={""}
+                  width={308}
+                  height={308}
+                  className="size-9 rounded-full"
+                />
+                <div className="text-3xl font-bold text-white">etalon</div>
+              </Link>
+            </div>
+            {FOOTER_LINKS.map((column) => (
+              <div key={column.title}>
+                <div className="text-lg font-semibold text-white">
+                  {column.title}
+                </div>
+                <div className="mt-5 flex flex-col items-start gap-1">
+                  {column.links.map((link) => (
+                    <Link
+                      key={link.label}
+                      href={link.href}
+                      className="flex items-center py-1.5"
+                    >
+                      <div className="text-gray-500 hover:text-white">
+                        {link.label}
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="bg-[#070707]">
+          <div className="section-container flex justify-between py-5 text-sm text-gray-400">
+            <div>Etalon, 2023. All Rights Reserved</div>
+            <div>
+              <Link href="/">Privacy & Cookies</Link>
+              <span> | </span>
+              <Link href={""}>T&Cs</Link>
+              <span> | </span>
+              <Link href={""}>Accessibility </Link>
+            </div>
+          </div>
+        </div>
+      </footer>
     </>
   )
 }

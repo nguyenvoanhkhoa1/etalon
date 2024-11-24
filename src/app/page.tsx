@@ -221,7 +221,7 @@ export default function Home() {
               <Link
                 key={link.label}
                 href={link.href}
-                className={`body-md-500 p-4 transition-all duration-300 ease-in-out ${
+                className={`body-lg-500 p-4 transition-all duration-300 ease-in-out ${
                   link.isActive
                     ? "text-white"
                     : "text-white/50 hover:text-white"
@@ -232,10 +232,10 @@ export default function Home() {
             ))}
           </nav>
           <div className="flex items-center gap-3">
-            <button className="body-md-500 flex items-center gap-1 text-white">
+            <button className="body-md-500 flex items-center gap-1 rounded-md p-2 text-white transition-colors duration-300 ease-in-out hover:bg-white/10">
               Menu <List size={24} />
             </button>
-            <button className="flex size-9 items-center justify-center rounded-full bg-primary-default">
+            <button className="hover:bg-primary-dark flex size-9 items-center justify-center rounded-full bg-primary-default transition-colors duration-300 ease-in-out">
               <Bag size={24} className="fill-secondary-dark" />
             </button>
           </div>
@@ -250,7 +250,7 @@ export default function Home() {
               </h3>
               <h1 className="text-9xl">Autumn Jackets</h1>
               <div className="mt-3 text-2xl">Autumn Sale / Up to 50% OFF</div>
-              <button className="mt-10 h-10 rounded-md bg-primary-default px-3 py-2 font-semibold text-secondary-dark">
+              <button className="hover:bg-primary-dark mt-10 h-10 rounded-md bg-primary-default px-3 py-2 font-semibold text-secondary-dark transition-colors duration-300 ease-in-out">
                 Open Collection
               </button>
             </div>
@@ -278,14 +278,14 @@ export default function Home() {
               </Slider>
               <div className="absolute bottom-[10%] left-1/2 flex w-4/5 -translate-x-1/2 justify-between">
                 <button
-                  className={`rounded-full border-2 border-solid border-white p-3`} // ${current === 0 ? "opacity-50" : ""}
+                  className={`rounded-full border-2 border-solid border-white p-3 transition-colors duration-300 ease-in-out hover:bg-white/20`} // ${current === 0 ? "opacity-50" : ""}
                   onClick={sliderRef.current?.slickPrev}
                   // disabled={current === 0}
                 >
                   <ArrowLeft weight="bold" size={24} className="fill-white" />
                 </button>
                 <button
-                  className={`rounded-full border-2 border-solid border-white p-3`} // ${current === BANNER_SLIDER.length - 1 ? "opacity-50" : ""}
+                  className={`rounded-full border-2 border-solid border-white p-3 transition-colors duration-300 ease-in-out hover:bg-white/20`} // ${current === BANNER_SLIDER.length - 1 ? "opacity-50" : ""}
                   onClick={sliderRef.current?.slickNext}
                   // disabled={current === BANNER_SLIDER.length - 1}
                 >
@@ -297,7 +297,9 @@ export default function Home() {
                   <div
                     key={index}
                     className={`size-4 cursor-pointer rounded-full transition-all duration-300 ease-in-out ${
-                      index === current ? "scale-125 bg-white" : "bg-white/50"
+                      index === current
+                        ? "scale-125 bg-white"
+                        : "bg-white/50 hover:bg-white"
                     }`}
                     onClick={() => sliderRef.current?.slickGoTo(index)}
                   ></div>
@@ -307,7 +309,7 @@ export default function Home() {
           </div>
         </section>
         <section className="bg-[#191919] py-5">
-          <div className="section-container flex gap-8">
+          <div className="section-container flex justify-between gap-8">
             {["gucci", "h&m", "nike", "tnf", "prada", "ellesse"].map(
               (item, index) => (
                 <div key={index}>
@@ -316,7 +318,7 @@ export default function Home() {
                     alt={""}
                     width={300}
                     height={300}
-                    className="brightness-0 invert"
+                    className="h-auto w-32 brightness-0 invert"
                   />
                 </div>
               )
@@ -329,7 +331,7 @@ export default function Home() {
             <div className="mt-10 grid grid-cols-12 gap-10">
               <div className="relative col-span-5 h-[450px] rounded-3xl bg-[#C6C2C9] bg-[url('/assets/homepage/new-collection-winter.png')] bg-[length:80%_auto] bg-[left_80%_top_4rem] bg-no-repeat p-5">
                 <div className="text-2xl font-bold">Mens Winter Collection</div>
-                <button className="absolute bottom-5 right-5 rounded-lg bg-gray-900 px-3 py-2 text-white">
+                <button className="absolute bottom-5 right-5 rounded-lg bg-gray-900 px-3 py-2 text-white transition-colors duration-300 ease-in-out hover:bg-gray-700">
                   Discover Now
                 </button>
               </div>
@@ -342,7 +344,7 @@ export default function Home() {
                 <div className="absolute right-5 top-1/2 -translate-y-1/2 text-5xl font-bold">
                   -40% OFF
                 </div>
-                <button className="absolute bottom-5 right-5 rounded-lg bg-gray-900 px-3 py-2 text-white">
+                <button className="absolute bottom-5 right-5 rounded-lg bg-gray-900 px-3 py-2 text-white transition-colors duration-300 ease-in-out hover:bg-gray-700">
                   Discover Now
                 </button>
               </div>
@@ -377,11 +379,11 @@ export default function Home() {
                         className="absolute right-5 top-5 fill-secondary-dark"
                       >
                         <path
-                          className="block group-hover:hidden"
+                          className="opacity-100 transition-all duration-100 ease-in-out group-hover:opacity-0"
                           d="M178,40c-20.65,0-38.73,8.88-50,23.89C116.73,48.88,98.65,40,78,40a62.07,62.07,0,0,0-62,62c0,70,103.79,126.66,108.21,129a8,8,0,0,0,7.58,0C136.21,228.66,240,172,240,102A62.07,62.07,0,0,0,178,40ZM128,214.8C109.74,204.16,32,155.69,32,102A46.06,46.06,0,0,1,78,56c19.45,0,35.78,10.36,42.6,27a8,8,0,0,0,14.8,0c6.82-16.67,23.15-27,42.6-27a46.06,46.06,0,0,1,46,46C224,155.61,146.24,204.15,128,214.8Z"
                         ></path>
                         <path
-                          className="hidden group-hover:block"
+                          className="opacity-0 transition-all duration-100 ease-in-out group-hover:opacity-100"
                           d="M240,102c0,70-103.79,126.66-108.21,129a8,8,0,0,1-7.58,0C119.79,228.66,16,172,16,102A62.07,62.07,0,0,1,78,40c20.65,0,38.73,8.88,50,23.89C139.27,48.88,157.35,40,178,40A62.07,62.07,0,0,1,240,102Z"
                         ></path>
                       </svg>
@@ -401,14 +403,14 @@ export default function Home() {
                         <span className="font-semibold"> {item.price}</span>
                       </div>
                     </div>
-                    <button className="rounded-xl bg-primary-default p-2">
+                    <button className="hover:bg-primary-dark rounded-xl bg-primary-default p-2 transition-colors duration-300 ease-in-out">
                       <Bag size={24} className="fill-secondary-dark" />
                     </button>
                   </div>
                 </div>
               ))}
             </div>
-            <button className="mx-auto mt-10 rounded-xl bg-gray-900 px-4 py-3 text-white">
+            <button className="mx-auto mt-10 rounded-xl bg-gray-900 px-4 py-3 text-white transition-colors duration-300 ease-in-out hover:bg-gray-700">
               Load More Products
             </button>
           </div>
@@ -425,11 +427,11 @@ export default function Home() {
                 className="w-[450px]"
               />
               <div className="flex items-center gap-3">
-                <div className="rounded-xl border-2 border-black px-3 py-2 text-2xl font-semibold">
+                <button className="hover:bg-primary-dark rounded-xl border-2 border-black px-3 py-2 text-2xl font-semibold transition-colors duration-300 ease-in-out">
                   <span className="line-through">$180</span>
                   <span> $50</span>
-                </div>
-                <button className="rounded-xl bg-gray-900 p-3">
+                </button>
+                <button className="rounded-xl bg-gray-900 p-3 transition-colors duration-300 ease-in-out hover:bg-gray-700">
                   <Bag size={28} className="fill-white" />
                 </button>
               </div>
@@ -484,7 +486,7 @@ export default function Home() {
                     <button className="pointer-events-none absolute right-5 top-5 rounded-full bg-white p-1 opacity-0 transition-all duration-300 ease-in-out group-hover:pointer-events-auto group-hover:opacity-100">
                       <ArrowRight size={20} />
                     </button>
-                    <div className="absolute bottom-5 left-5 rounded-md bg-primary-default px-2 py-1 text-sm">
+                    <div className="group-hover:bg-primary-dark absolute bottom-5 left-5 rounded-md bg-primary-default px-2 py-1 text-sm transition-colors duration-300 ease-in-out">
                       {item.date}
                     </div>
                   </Link>
@@ -493,10 +495,14 @@ export default function Home() {
                       <Link
                         href={"/"}
                         className="line-clamp-2 text-lg font-semibold leading-6 hover:text-secondary-dark"
+                        title={item.title}
                       >
                         {item.title}
                       </Link>
-                      <div className="mt-2 line-clamp-2 text-sm">
+                      <div
+                        className="mt-2 line-clamp-2 text-sm"
+                        title={item.subtitle}
+                      >
                         {item.subtitle}
                       </div>
                     </div>
@@ -519,7 +525,7 @@ export default function Home() {
                 placeholder="example@gmail.com"
                 className="w-96 rounded-lg bg-white py-3 pl-4 pr-24 focus-within:outline-none"
               />
-              <button className="absolute right-1 top-1 rounded-md bg-primary-default px-4 py-2">
+              <button className="hover:bg-primary-dark absolute right-1 top-1 rounded-md bg-primary-default px-4 py-2 transition-colors duration-300 ease-in-out">
                 Submit
               </button>
             </div>
@@ -581,7 +587,7 @@ export default function Home() {
                       href={link.href}
                       className="flex items-center py-1.5"
                     >
-                      <div className="text-gray-500 hover:text-white">
+                      <div className="text-gray-500 transition-colors duration-150 ease-in-out hover:text-gray-300">
                         {link.label}
                       </div>
                     </Link>
@@ -595,11 +601,26 @@ export default function Home() {
           <div className="section-container flex justify-between py-5 text-sm text-gray-400">
             <div>Etalon, 2023. All Rights Reserved</div>
             <div>
-              <Link href="/">Privacy & Cookies</Link>
+              <Link
+                href="/"
+                className="transition-colors duration-150 ease-in-out hover:text-gray-200"
+              >
+                Privacy & Cookies
+              </Link>
               <span> | </span>
-              <Link href={""}>T&Cs</Link>
+              <Link
+                href={""}
+                className="transition-colors duration-150 ease-in-out hover:text-gray-200"
+              >
+                T&Cs
+              </Link>
               <span> | </span>
-              <Link href={""}>Accessibility </Link>
+              <Link
+                href={""}
+                className="transition-colors duration-150 ease-in-out hover:text-gray-200"
+              >
+                Accessibility{" "}
+              </Link>
             </div>
           </div>
         </div>

@@ -2,7 +2,17 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowLeft, ArrowRight, Bag, Heart, List } from "@phosphor-icons/react"
+import {
+  ArrowLeft,
+  ArrowRight,
+  Bag,
+  CurrencyCircleDollar,
+  Heart,
+  List,
+  ShieldCheck,
+  Swap,
+  Truck,
+} from "@phosphor-icons/react"
 import Slider, { Settings } from "react-slick"
 
 import "slick-carousel/slick/slick.css"
@@ -93,6 +103,43 @@ export default function Home() {
       sales: "-30%",
       price: "$129",
       oldPrice: "$170",
+    },
+  ]
+
+  const LATEST_NEWS = [
+    {
+      thumbnail: {
+        url: "/assets/homepage/post-1.jpg",
+        w: 700,
+        h: 430,
+      },
+      title: "Etalon launches first Golf Collection",
+      subtitle:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.",
+      date: "April 2024",
+    },
+    {
+      thumbnail: {
+        url: "/assets/homepage/post-2.jpg",
+        w: 700,
+        h: 500,
+      },
+      title: "Future of Fashion: The Biggest Men's Clothing Trends in 2024",
+      subtitle:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.",
+      date: "Jun 2024",
+    },
+    {
+      thumbnail: {
+        url: "/assets/homepage/post-3.jpg",
+        w: 700,
+        h: 500,
+      },
+      title:
+        "Ellington Curtis, Len Fischer, and George Davies for Spring / Summer '24",
+      subtitle:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.",
+      date: "Jan 2024",
     },
   ]
 
@@ -390,6 +437,88 @@ export default function Home() {
                   <div className="text-xl">Seconds</div>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+        <section className="bg-[#E9E9E9]">
+          <div className="section-container flex flex-col py-16">
+            <h2 className="text-6xl">Latest News</h2>
+            <div className="mt-10 grid grid-cols-3 gap-12">
+              {LATEST_NEWS.map((item, index) => (
+                <div key={index} className="flex flex-col">
+                  <Link href={"/"} className="group relative overflow-hidden">
+                    <Image
+                      src={item.thumbnail.url}
+                      alt={""}
+                      width={item.thumbnail.w}
+                      height={item.thumbnail.h}
+                      className="h-60 w-full rounded-2xl object-cover object-center"
+                    />
+                    <button className="pointer-events-none absolute right-5 top-5 rounded-full bg-white p-1 opacity-0 transition-all duration-300 ease-in-out group-hover:pointer-events-auto group-hover:opacity-100">
+                      <ArrowRight size={20} />
+                    </button>
+                    <div className="absolute bottom-5 left-5 rounded-md bg-primary-default px-2 py-1 text-sm">
+                      {item.date}
+                    </div>
+                  </Link>
+                  <div className="mt-4 flex items-center justify-between">
+                    <div>
+                      <Link
+                        href={"/"}
+                        className="line-clamp-2 text-lg font-semibold leading-6 hover:text-secondary-dark"
+                      >
+                        {item.title}
+                      </Link>
+                      <div className="mt-2 line-clamp-2 text-sm">
+                        {item.subtitle}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+        <section className="bg-[#E9E9E9]">
+          <div className="section-container flex flex-col items-center gap-10 pb-16">
+            <div className="text-center text-3xl font-bold">
+              Subscribe and get 20% off
+              <br />
+              your first purchase.
+            </div>
+            <div className="relative">
+              <input
+                type="text"
+                placeholder="example@gmail.com"
+                className="w-96 rounded-lg bg-white py-3 pl-4 pr-24 focus-within:outline-none"
+              />
+              <button className="absolute right-1 top-1 rounded-md bg-primary-default px-4 py-2">
+                Submit
+              </button>
+            </div>
+          </div>
+        </section>
+        <section className="bg-[#191919]">
+          <div className="section-container grid grid-cols-4 gap-6 py-16">
+            <div className="flex flex-col items-center gap-4">
+              <Truck weight="thin" size={52} className="fill-white" />
+              <div className="text-white">Free Shipping & Returns</div>
+            </div>
+            <div className="flex flex-col items-center gap-4">
+              <CurrencyCircleDollar
+                weight="thin"
+                size={52}
+                className="fill-white"
+              />
+              <div className="text-white">100% Money Back Guarantee</div>
+            </div>
+            <div className="flex flex-col items-center gap-4">
+              <Swap weight="thin" size={52} className="fill-white" />
+              <div className="text-white">Replacement in case of a defect</div>
+            </div>
+            <div className="flex flex-col items-center gap-4">
+              <ShieldCheck weight="thin" size={52} className="fill-white" />
+              <div className="text-white">Safe and Secure Checkout</div>
             </div>
           </div>
         </section>

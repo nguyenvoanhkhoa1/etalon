@@ -245,7 +245,7 @@ export default function Home() {
             >
               <List size={24} />
             </button>
-            <button className="hover:bg-primary-dark flex size-12 items-center justify-center rounded-full bg-primary-default transition-colors duration-300 ease-in-out">
+            <button className="flex size-12 items-center justify-center rounded-full bg-primary-default transition-colors duration-300 ease-in-out hover:bg-primary-dark">
               <Bag size={24} className="fill-secondary-dark" />
             </button>
           </div>
@@ -284,18 +284,20 @@ export default function Home() {
       </header>
       <main>
         <section className="overflow-hidden bg-gradient-to-br from-secondary-dark to-secondary-light">
-          <div className="section-container relative flex py-[120px] xl:py-32">
-            <div className="flex w-1/2 flex-col items-start text-white">
+          <div className="section-container relative flex flex-col gap-8 pb-0 pt-20 lg:flex-row lg:gap-0 lg:py-[120px] xl:py-32">
+            <div className="flex w-full flex-col items-center text-center text-white lg:w-1/2 lg:items-start lg:text-start">
               <h3 className="font-qwigley text-8xl leading-none text-white/80 xl:text-9xl">
                 2022
               </h3>
-              <h1 className="text-8xl xl:text-9xl">Autumn Jackets</h1>
+              <h1 className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl">
+                Autumn Jackets
+              </h1>
               <div className="mt-5 text-2xl">Autumn Sale / Up to 50% OFF</div>
-              <button className="hover:bg-primary-dark mt-10 h-10 rounded-md bg-primary-default px-3 py-2 font-semibold text-secondary-dark transition-colors duration-300 ease-in-out">
+              <button className="mt-10 h-10 rounded-md bg-primary-default px-3 py-2 font-semibold text-secondary-dark transition-colors duration-300 ease-in-out hover:bg-primary-dark">
                 Open Collection
               </button>
             </div>
-            <div className="absolute right-6 top-[10%] w-[calc(50%-24px)] xl:right-0 xl:w-1/2">
+            <div className="right-6 top-[10%] mx-auto block w-4/5 lg:absolute lg:mx-0 lg:w-[calc(50%-24px)] xl:right-0 xl:w-1/2">
               <Slider {...settings} ref={sliderRef}>
                 {BANNER_SLIDER.map((item, index) => (
                   <div key={index} className="">
@@ -317,7 +319,7 @@ export default function Home() {
                   </div>
                 ))}
               </Slider>
-              <div className="absolute bottom-[10%] left-1/2 flex w-4/5 -translate-x-1/2 justify-between">
+              <div className="absolute bottom-[10%] left-1/2 hidden w-4/5 -translate-x-1/2 justify-between lg:flex">
                 <button
                   className={`rounded-full border-2 border-solid border-white p-3 transition-colors duration-300 ease-in-out hover:bg-white/20`} // ${current === 0 ? "opacity-50" : ""}
                   onClick={sliderRef.current?.slickPrev}
@@ -333,7 +335,7 @@ export default function Home() {
                   <ArrowRight weight="bold" size={24} className="fill-white" />
                 </button>
               </div>
-              <div className="absolute right-0 top-1/2 flex -translate-y-1/2 flex-col gap-6">
+              <div className="absolute right-0 top-1/2 hidden -translate-y-1/2 flex-col gap-6 lg:flex">
                 {BANNER_SLIDER.map((_, index) => (
                   <div
                     key={index}
@@ -350,7 +352,7 @@ export default function Home() {
           </div>
         </section>
         <section className="bg-[#191919] py-5">
-          <div className="section-container flex justify-between gap-8">
+          <div className="section-container flex flex-wrap justify-center gap-8">
             {["gucci", "h&m", "nike", "tnf", "prada", "ellesse"].map(
               (item, index) => (
                 <div key={index}>
@@ -368,21 +370,37 @@ export default function Home() {
         </section>
         <section className="bg-[#E9E9E9]">
           <div className="section-container py-16">
-            <h2 className="text-5xl xl:text-6xl">New Collection</h2>
-            <div className="mt-10 grid grid-cols-12 gap-10">
-              <div className="relative col-span-5 h-[450px] rounded-3xl bg-[#C6C2C9] bg-[url('/assets/homepage/new-collection-winter.png')] bg-[length:80%_auto] bg-[left_80%_top_4rem] bg-no-repeat p-5">
+            <h2 className="text-center text-4xl md:text-5xl lg:text-left xl:text-6xl">
+              New Collection
+            </h2>
+            <div className="mt-10 flex grid-cols-12 flex-col gap-10 lg:grid">
+              <div className="relative col-span-12 h-4/5 overflow-hidden rounded-3xl bg-[#C6C2C9] bg-none bg-[length:80%_auto] bg-[left_80%_top_4rem] bg-no-repeat p-5 lg:col-span-5 lg:h-96 lg:bg-[url('/assets/homepage/new-collection-winter.png')] xl:h-[450px]">
                 <div className="text-2xl font-bold">Mens Winter Collection</div>
+                <Image
+                  src={"/assets/homepage/new-collection-winter.png"}
+                  alt={""}
+                  width={600}
+                  height={800}
+                  className="float-right block w-4/5 translate-y-[20%] lg:hidden"
+                />
                 <button className="absolute bottom-5 right-5 rounded-lg bg-gray-900 px-3 py-2 text-white transition-colors duration-300 ease-in-out hover:bg-gray-700">
                   Discover Now
                 </button>
               </div>
-              <div className="relative col-span-7 rounded-3xl bg-primary-default bg-[url('/assets/homepage/new-collection-bag.png')] bg-[length:70%_auto] bg-[left_0%_top_1rem] bg-no-repeat p-5">
-                <div className="float-end mr-10 mt-10 text-2xl font-bold">
+              <div className="relative col-span-12 h-4/5 overflow-hidden rounded-3xl bg-primary-default bg-none bg-[length:60%_auto] bg-[left_-10%_bottom_-4rem] bg-no-repeat p-5 lg:col-span-7 lg:h-auto lg:bg-[url('/assets/homepage/new-collection-bag.png')] xl:bg-[length:70%_auto] xl:bg-[left_0%_top_1rem]">
+                <div className="float-end text-2xl font-bold sm:mr-10 sm:mt-10">
                   Men&apos;s Bags
                   <br />
                   Collection
                 </div>
-                <div className="absolute right-5 top-1/2 -translate-y-1/2 text-5xl font-bold">
+                <Image
+                  src={"/assets/homepage/new-collection-bag.png"}
+                  alt={""}
+                  width={600}
+                  height={750}
+                  className="block w-4/5 translate-x-[-15%] translate-y-[20%] lg:hidden"
+                />
+                <div className="absolute right-5 top-1/3 -translate-y-1/2 text-4xl font-bold lg:top-1/2 lg:text-5xl">
                   -40% OFF
                 </div>
                 <button className="absolute bottom-5 right-5 rounded-lg bg-gray-900 px-3 py-2 text-white transition-colors duration-300 ease-in-out hover:bg-gray-700">
@@ -394,11 +412,13 @@ export default function Home() {
         </section>
         <section>
           <div className="section-container flex flex-col py-16">
-            <h2 className="text-5xl xl:text-6xl">Best Sellers</h2>
-            <div className="mt-10 grid grid-cols-4 gap-6">
+            <h2 className="text-center text-4xl md:text-5xl lg:text-left xl:text-6xl">
+              Best Sellers
+            </h2>
+            <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {BEST_SELLERS.map((item, index) => (
                 <div key={index} className="flex flex-col">
-                  <div className="relative h-60 grow overflow-hidden rounded-2xl bg-[#EFEFED] pt-5 xl:h-72">
+                  <div className="relative grow overflow-hidden rounded-2xl bg-[#EFEFED] pt-5 lg:h-60 xl:h-72">
                     <Image
                       src={item.image.url}
                       alt={""}
@@ -411,13 +431,13 @@ export default function Home() {
                         {item.sales}
                       </div>
                     )}
-                    <button className="group">
+                    <button className="group absolute right-5 top-5">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="32"
                         height="32"
                         viewBox="0 0 256 256"
-                        className="absolute right-5 top-5 fill-secondary-dark"
+                        className="fill-secondary-dark"
                       >
                         <path
                           className="opacity-100 transition-all duration-100 ease-in-out group-hover:opacity-0"
@@ -444,7 +464,7 @@ export default function Home() {
                         <span className="font-semibold"> {item.price}</span>
                       </div>
                     </div>
-                    <button className="hover:bg-primary-dark rounded-xl bg-primary-default p-2 transition-colors duration-300 ease-in-out">
+                    <button className="rounded-xl bg-primary-default p-2 transition-colors duration-300 ease-in-out hover:bg-primary-dark">
                       <Bag size={24} className="fill-secondary-dark" />
                     </button>
                   </div>
@@ -456,10 +476,12 @@ export default function Home() {
             </button>
           </div>
         </section>
-        <section className="bg-[linear-gradient(to_right,_#FEDE67_50%,_#3B5E48_50%)]">
-          <div className="section-container flex gap-20 bg-[linear-gradient(to_right,_#FEDE67_30%,_#3B5E48_30%)] py-16">
-            <div className="flex flex-col gap-5">
-              <div className="text-5xl font-bold xl:text-6xl">-70% OFF</div>
+        <section className="bg-[linear-gradient(to_bottom,_#FEDE67_55%,_#3B5E48_55%)] lg:bg-[linear-gradient(to_right,_#FEDE67_50%,_#3B5E48_50%)]">
+          <div className="section-container flex flex-col gap-20 py-16 lg:flex-row lg:bg-[linear-gradient(to_right,_#FEDE67_30%,_#3B5E48_30%)]">
+            <div className="flex flex-col items-center gap-5 lg:items-start">
+              <div className="text-4xl font-bold md:text-5xl xl:text-6xl">
+                -70% OFF
+              </div>
               <Image
                 src={"/assets/homepage/sale-thumb.png"}
                 alt={""}
@@ -468,7 +490,7 @@ export default function Home() {
                 className="w-[420px] xl:w-[450px]"
               />
               <div className="flex items-center gap-3">
-                <button className="hover:bg-primary-dark rounded-xl border-2 border-black px-3 py-2 text-2xl font-semibold transition-colors duration-300 ease-in-out">
+                <button className="rounded-xl border-2 border-black px-3 py-2 text-2xl font-semibold transition-colors duration-300 ease-in-out hover:bg-primary-dark">
                   <span className="line-through">$180</span>
                   <span> $50</span>
                 </button>
@@ -478,30 +500,30 @@ export default function Home() {
               </div>
             </div>
             <div className="grow">
-              <div className="text-5xl font-medium text-white xl:text-6xl">
+              <div className="text-center text-4xl font-medium text-white md:text-5xl lg:text-start xl:text-6xl">
                 Sale ends soon
               </div>
               <div className="mt-14 grid grid-cols-4 gap-4 text-white xl:gap-8">
                 <div className="flex flex-col items-center gap-3">
-                  <div className="flex h-24 w-full items-center justify-center rounded-2xl bg-secondary-dark text-6xl xl:h-32 xl:text-7xl">
+                  <div className="flex h-20 w-full items-center justify-center rounded-2xl bg-secondary-dark text-5xl sm:h-24 sm:text-6xl xl:h-32 xl:text-7xl">
                     {days}
                   </div>
                   <div className="text-lg xl:text-xl">Days</div>
                 </div>
                 <div className="flex flex-col items-center gap-3">
-                  <div className="flex h-24 w-full items-center justify-center rounded-2xl bg-secondary-dark text-6xl xl:h-32 xl:text-7xl">
+                  <div className="flex h-20 w-full items-center justify-center rounded-2xl bg-secondary-dark text-5xl sm:h-24 sm:text-6xl xl:h-32 xl:text-7xl">
                     {hours}
                   </div>
                   <div className="text-lg xl:text-xl">Hours</div>
                 </div>
                 <div className="flex flex-col items-center gap-3">
-                  <div className="flex h-24 w-full items-center justify-center rounded-2xl bg-secondary-dark text-6xl xl:h-32 xl:text-7xl">
+                  <div className="flex h-20 w-full items-center justify-center rounded-2xl bg-secondary-dark text-5xl sm:h-24 sm:text-6xl xl:h-32 xl:text-7xl">
                     {minutes}
                   </div>
                   <div className="text-lg xl:text-xl">Minutes</div>
                 </div>
                 <div className="flex flex-col items-center gap-3">
-                  <div className="flex h-24 w-full items-center justify-center rounded-2xl bg-secondary-dark text-6xl xl:h-32 xl:text-7xl">
+                  <div className="flex h-20 w-full items-center justify-center rounded-2xl bg-secondary-dark text-5xl sm:h-24 sm:text-6xl xl:h-32 xl:text-7xl">
                     {seconds}
                   </div>
                   <div className="text-lg xl:text-xl">Seconds</div>
@@ -512,8 +534,10 @@ export default function Home() {
         </section>
         <section className="bg-[#E9E9E9]">
           <div className="section-container flex flex-col py-16">
-            <h2 className="text-5xl xl:text-6xl">Latest News</h2>
-            <div className="mt-10 grid grid-cols-3 gap-12">
+            <h2 className="text-center text-4xl md:text-5xl lg:text-left xl:text-6xl">
+              Latest News
+            </h2>
+            <div className="mt-10 grid grid-cols-1 gap-12 md:grid-cols-3">
               {LATEST_NEWS.map((item, index) => (
                 <div key={index} className="flex flex-col">
                   <Link href={"/"} className="group relative overflow-hidden">
@@ -522,12 +546,12 @@ export default function Home() {
                       alt={""}
                       width={item.thumbnail.w}
                       height={item.thumbnail.h}
-                      className="h-60 w-full rounded-2xl object-cover object-center"
+                      className="h-auto w-full rounded-2xl object-cover object-center md:h-60"
                     />
                     <button className="pointer-events-none absolute right-5 top-5 rounded-full bg-white p-1 opacity-0 transition-all duration-300 ease-in-out group-hover:pointer-events-auto group-hover:opacity-100">
                       <ArrowRight size={20} />
                     </button>
-                    <div className="group-hover:bg-primary-dark absolute bottom-5 left-5 rounded-md bg-primary-default px-2 py-1 text-sm transition-colors duration-300 ease-in-out">
+                    <div className="absolute bottom-5 left-5 rounded-md bg-primary-default px-2 py-1 text-sm transition-colors duration-300 ease-in-out group-hover:bg-primary-dark">
                       {item.date}
                     </div>
                   </Link>
@@ -560,23 +584,25 @@ export default function Home() {
               <br />
               your first purchase.
             </div>
-            <div className="relative">
+            <div className="relative w-full sm:w-96">
               <input
                 type="text"
                 placeholder="example@gmail.com"
-                className="w-96 rounded-lg bg-white py-3 pl-4 pr-24 focus-within:outline-none"
+                className="w-full rounded-lg bg-white py-3 pl-4 pr-24 focus-within:outline-none"
               />
-              <button className="hover:bg-primary-dark absolute right-1 top-1 rounded-md bg-primary-default px-4 py-2 transition-colors duration-300 ease-in-out">
+              <button className="absolute right-1 top-1 rounded-md bg-primary-default px-4 py-2 transition-colors duration-300 ease-in-out hover:bg-primary-dark">
                 Submit
               </button>
             </div>
           </div>
         </section>
         <section className="bg-[#191919]">
-          <div className="section-container grid grid-cols-4 gap-6 py-16">
+          <div className="section-container grid grid-cols-2 gap-6 py-16 md:grid-cols-4">
             <div className="flex flex-col items-center gap-4">
               <Truck weight="thin" size={48} className="fill-white" />
-              <div className="text-sm text-white">Free Shipping & Returns</div>
+              <div className="text-center text-sm text-white">
+                Free Shipping & Returns
+              </div>
             </div>
             <div className="flex flex-col items-center gap-4">
               <CurrencyCircleDollar
@@ -584,26 +610,28 @@ export default function Home() {
                 size={48}
                 className="fill-white"
               />
-              <div className="text-sm text-white">
+              <div className="text-center text-sm text-white">
                 100% Money Back Guarantee
               </div>
             </div>
             <div className="flex flex-col items-center gap-4">
               <Swap weight="thin" size={48} className="fill-white" />
-              <div className="text-sm text-white">
+              <div className="text-center text-sm text-white">
                 Replacement in case of a defect
               </div>
             </div>
             <div className="flex flex-col items-center gap-4">
               <ShieldCheck weight="thin" size={48} className="fill-white" />
-              <div className="text-sm text-white">Safe and Secure Checkout</div>
+              <div className="text-center text-sm text-white">
+                Safe and Secure Checkout
+              </div>
             </div>
           </div>
         </section>
       </main>
       <footer className="border-t border-gray-700">
         <div className="bg-[#191919]">
-          <div className="section-container grid grid-cols-4 gap-6 py-16">
+          <div className="section-container grid grid-cols-2 gap-6 py-16 md:grid-cols-4">
             <div>
               <Link href="/" className="flex items-center gap-2">
                 <Image
@@ -639,7 +667,7 @@ export default function Home() {
           </div>
         </div>
         <div className="bg-[#070707]">
-          <div className="section-container flex justify-between py-5 text-sm text-gray-400">
+          <div className="section-container flex flex-col items-center justify-between gap-4 py-5 text-sm text-gray-400 md:flex md:flex-row">
             <div>Etalon, 2023. All Rights Reserved</div>
             <div>
               <Link
